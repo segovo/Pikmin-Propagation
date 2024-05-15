@@ -7,8 +7,8 @@
 <div class="entire_page_with_footer"></div>
    <body class = "entire_page"> 
 
-      <div class = "header" style="border-bottom: 7px solid rgb(68, 74, 81);">
-         <h1 class = "header">&emsp;Pikmin Propagation Simulator</h1>
+      <div class = "header" style="border-bottom: 3px solid rgb(68, 74, 81);">
+         <h1 class = "header">Pikmin Propagation Simulator</h1>
       </div>
 
       <div class = "instructions">
@@ -19,11 +19,10 @@
       </div>
       
       
-      
       <form method="POST">
-         <div class = "initialization_menu">
-            <h3 class = "initialization_menu">Initialize Graph</h3>
-            <label class="initialization_menu_form" for="input_graph_family">&emsp;Choose a graph type:</label>
+         <div class="initialization_menu">
+            <h3>Initialize Graph</h3>
+            <label class="initialization_menu_form" for="input_graph_family">Choose a graph type:</label>
             <select class="initialization_menu_form_black_override" name="input_graph_family" id="input_graph_family">
                <option value="path">Path</option>
                <option value="cycle">Cycle</option>
@@ -32,31 +31,30 @@
                <option value="complete">Complete</option>
             </select>
             <br>
-            <label class="initialization_menu_form" for="input_size">&emsp;Select Number of Vertices [1-10]:</label>
+            <label class="initialization_menu_form" for="input_size">Select Number of Vertices [1-10]:</label>
             <input class="initialization_menu_form_black_override" id="number" type="number" name="input_size" value="1" min="1" max="10" />
             <br>
-            &emsp;<input class="button-5" type="submit" name="init_graph" value="Load Graph">
+            <input class="button-5" type="submit" name="init_graph" value="Load Graph">
          </div>
          {% if graph_size > 0 %}
          <div class = "select_analysis">
-            <div class = "analysis_option" style="padding:6px;">
+            <div class = "analysis_option">
                <h4 class = "analysis_option">Manual Analysis</h4>
                <label class="analysis_option" for="input_pik_pos">Select Starting Vertex: </label>
                <input id="number" type="number" name="input_pik_pos" value="1" min="1" max={{graph_size}} />
                <br>
                <input class="button-5" type="submit" name="init_pik" value="Initialize Pikmin">
             </div>
-            <div class = "analysis_option" style="padding:6px;">
+            <div class = "analysis_option">
                <h4 class = "analysis_option">Automatic Analysis (Coming Soon)</h4>
                <input class="disabled-button-5" type="submit" name="run_automatic" value="Run Automatic Analysis">
             </div>
          </div>
          {% endif %}
-         <br>
          <div class="score_display">
             {% if not game_complete %}
-               <h2>&emsp;Current Game State: </h2>
-               <div style="text-indent:50px;">
+               <h2>Current Game State: </h2>
+               <div>
                   <h4>Turn: {{ turn_number }}</h4>
                   <h4># of Verticies Colored Red: {{ red_count }}</h4>
                   <h4>Current Support Score: {{ red_count + turn_number}}</h4>
